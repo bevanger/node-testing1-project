@@ -153,7 +153,9 @@ class Car {
     } else if (this.tank === 0) {
       return 'You cannot drive without gas!'
     } else {
-      return "You'll run out of gas trying to drive that far!"
+      this.odometer += (this.tank * this.mpg)
+      this.tank = 0
+      return this.odometer
     }
   }
 
@@ -175,7 +177,8 @@ class Car {
       this.tank += gallons 
       return this.tank
     } else {
-      return 'You cannot put that much gas in your car'
+      this.tank = 20
+      return this.tank
     }
   }
 }
