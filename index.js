@@ -130,7 +130,8 @@ class Car {
   constructor(name, tankSize, mpg) {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
-    // ✨ initialize whatever other properties are needed
+    this.mpg = mpg
+    this.name = name
   }
 
   /**
@@ -147,7 +148,15 @@ class Car {
    * focus.drive(200) // returns 600 (ran out of gas after 100 miles)
    */
   drive(distance) {
-    // ✨ implement
+    if(this.tank >= (distance / this.mpg).toFixed(2)) {
+      this.tank -= (distance / this.mpg).toFixed(2)
+      this.odometer += distance
+      return this.odometer
+    } else if (this.tank === 0) {
+      return 'You cannot drive without gas!'
+    } else {
+      return "You'll run out of gas trying to drive that far!"
+    }
   }
 
   /**
@@ -162,7 +171,14 @@ class Car {
    * focus.refuel(99) // returns 600 (tank only holds 20)
    */
   refuel(gallons) {
-    // ✨ implement
+    if(this.tank === 20) {
+      return 'You have a full tank'
+    } else if (this.tank + gallons < 20) {
+      this.tank += gallons 
+      return this.tank
+    } else {
+      return 'You cannot put that much gas in your car'
+    }
   }
 }
 
