@@ -37,7 +37,7 @@ describe('[Exercise 3] findLargestInteger', () => {
   test('[5] returns the largest number in an array of objects { integer: 2 }', () => {
     const input = [{ integer: 1 }, { integer: 3 }, { integer: 2 }];
 
-    expect(utils.findLargestInteger(input)).toEqual({ integer: 3 })
+    expect(utils.findLargestInteger(input)).toEqual(3)
   })
 })
 
